@@ -1,0 +1,3 @@
+displayName = Ethereal Boots
+author = Boaphil
+version = 1.5
