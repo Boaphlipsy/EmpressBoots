@@ -13,7 +13,7 @@ namespace EmpressBoots.Items.Accesories
             string displayName = "Ethereal Boots";
             string tooltip = 
                 "Allows flight, super fast running, and extra mobility on ice\n" +
-                "8 % increased movement speed\n" +
+                "8% increased movement speed\n" +
                 "Provides the ability to walk on water, honey & lava\n" +
                 "Grants immunity to fire blocks and 7 seconds of immunity to lava\n" +
                 "Reduces damage from touching lava\n" +
