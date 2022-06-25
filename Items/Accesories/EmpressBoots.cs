@@ -11,19 +11,19 @@ namespace EmpressBoots.Items.Accesories
         public override void SetStaticDefaults()
         {
             string displayName = "Ethereal Boots";
-            string tooltip = 
+            string tooltip =
                 "Allows flight, super fast running, and extra mobility on ice\n" +
                 "8% increased movement speed\n" +
                 "Provides the ability to walk on water, honey & lava\n" +
                 "Grants immunity to fire blocks and 7 seconds of immunity to lava\n" +
-                "Reduces damage from touching lava\n" +
-                "Grants infinite wing and rocket boot flight\n" +
-                "Increases flight and jump mobility";
-
+                "Reduces damage from touching lava\n";
+            if (BootsConfig.Instance.IgnoreCalamitySoaringNerf)
+                tooltip += "Grants infinite wing and rocket boot flight\n";
+            else
+                tooltip += "Increases wing flight time by 50%\n";
+            tooltip += "Increases flight and jump mobility";
             if (BootsConfig.Instance.EnableHorseShoe)
-            {
                 tooltip += "\nNegates fall damge";
-            }
 
             DisplayName.SetDefault(displayName);
             Tooltip.SetDefault(tooltip);
@@ -43,27 +43,44 @@ namespace EmpressBoots.Items.Accesories
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            //Other Boots
+            UpdateBoots(player);
+
+            UpdateInsignia(player);
+
+            UpdateHorseshoe(player);
+        }
+
+        private void UpdateInsignia(Player player)
+        {
+            player.moveSpeed += 0.1f;
+            if (BootsConfig.Instance.IgnoreCalamitySoaringNerf)
+            {
+                player.wingTime = player.wingTimeMax + 1;
+                player.rocketTime = player.rocketTimeMax + 1;
+
+                player.jumpSpeedBoost += 2.4f;
+                player.runAcceleration *= 2f;
+            }
+            else player.empressBrooch = true;
+        }
+
+        private void UpdateHorseshoe(Player player)
+        {
+            if (BootsConfig.Instance.EnableHorseShoe)
+                player.noFallDmg = true;
+        }
+
+        private void UpdateBoots(Player player)
+        {
             player.waterWalk = true;
             player.fireWalk = true;
             player.lavaMax += 420;
             player.lavaRose = true;
 
-            //Terraspark Boots
             player.accRunSpeed = 6.75f;
             player.rocketBoots = (player.vanityRocketBoots = 4);
             player.moveSpeed += 0.08f;
             player.iceSkate = true;
-
-            //Soaring Insignia
-            player.moveSpeed += 0.1f;
-            player.empressBrooch = true;
-
-            //Lucky Horseshoe
-            if (BootsConfig.Instance.EnableHorseShoe)
-            {
-                player.noFallDmg = true;
-            }
         }
 
         private void AddRecipeGroup()

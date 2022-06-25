@@ -22,5 +22,10 @@ namespace EmpressBoots.Config
         [Label("Enable Ancient Manipulator Crafting")]
         [Tooltip("Changes the required Crafting Station from Tinkerers Workbench to Ancient Manipulator\nRELOAD REQUIRED")]
         public bool EnableManipulatorCrafting;
+
+        [DefaultValue(true)]
+        [Label("Ignore Calamity Mod's Nerf to the Soaring Insignia")]
+        [Tooltip("Ignores Calamity Mod's Nerf to the Soaring Insignia and still grants Infinite Flight")]
+        public bool IgnoreCalamitySoaringNerf;
     }
 }
