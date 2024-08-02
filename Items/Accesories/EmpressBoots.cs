@@ -2,6 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using EmpressBoots.Config;
+using Terraria.GameContent.Creative;
 
 namespace EmpressBoots.Items.Accesories
 {
@@ -10,35 +11,21 @@ namespace EmpressBoots.Items.Accesories
     {
         public override void SetStaticDefaults()
         {
-            string displayName = "Ethereal Boots";
-            string tooltip =
-                "Allows flight, super fast running, and extra mobility on ice\n" +
-                "8% increased movement speed\n" +
-                "Provides the ability to walk on water, honey & lava\n" +
-                "Grants immunity to fire blocks and 7 seconds of immunity to lava\n" +
-                "Reduces damage from touching lava\n";
-            if (BootsConfig.Instance.IgnoreCalamitySoaringNerf)
-                tooltip += "Grants infinite wing and rocket boot flight\n";
-            else
-                tooltip += "Increases wing flight time by 50%\n";
-            tooltip += "Increases flight and jump mobility";
-            if (BootsConfig.Instance.EnableHorseShoe)
-                tooltip += "\nNegates fall damge";
-
-            DisplayName.SetDefault(displayName);
-            Tooltip.SetDefault(tooltip);
+            //CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()
         {
             Item.width = 22;
             Item.height = 20;
-            Item.maxStack = 1;
-            Item.value = Item.sellPrice(gold: 25);
-            Item.accessory = true;
+            Item.value = 250000;
             Item.rare = ItemRarityID.LightRed;
+            Item.accessory = true;
+            Item.maxStack = 1;
+
             Item.expert = true;
-            Item.canBePlacedInVanityRegardlessOfConditions = true;
+            Item.vanity = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

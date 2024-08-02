@@ -1,6 +1,9 @@
 Adds a combined version of the Terraspark Boots and the Soaring Insignia.
 
 Changelog:
+- 2.1.0 Added ability to reforge(how did I never notice it wasn't reforgable)
+- 2.0.0 Updated to tModLoader 1.4.4
+- 1.10 Updated to newest Modloader Update
 - 1.9 Fixed the bug of not giving infinite flight depending on the slot the accessory is in
 - 1.8 Now has a config for still giving infinite flight with Calamity Mod
 - 1.7 Updated to newest Modloader Update
