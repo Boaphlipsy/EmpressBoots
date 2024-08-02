@@ -22,10 +22,7 @@ namespace EmpressBoots.Items.Accesories
             Item.value = 250000;
             Item.rare = ItemRarityID.LightRed;
             Item.accessory = true;
-            Item.maxStack = 1;
-
             Item.expert = true;
-            Item.vanity = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
